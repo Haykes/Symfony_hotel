@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Créer une réservation{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Créer une réservation</h1>
+
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">
+                    Réserver
+                </button>
+            </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

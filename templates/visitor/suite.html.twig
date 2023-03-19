@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/index.css') }}">
+{% endblock %}
+
+{% block title %}Suite{% endblock %}
+
+{% block body %}
+
+
+<h1> Liste des suites pour l'établissement : {{ establishment.name }}</h1>
+<br>
+
+
+{% for a_suite in suite %}
+  <h2> {{ a_suite.title }} </h2>
+  <p> {{ a_suite.description }} </p>
+  <p> Prix : {{ a_suite.price }} </p>
+  <p> Image : {{ a_suite.image }} </p>
+{% endfor %}
+
+<a href="{{ path('app_visitor', {id: establishment}) }}">Retour aux établissements</a>
+
+{% endblock %}
