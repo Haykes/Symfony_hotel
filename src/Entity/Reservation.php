@@ -1,5 +1,4 @@
 <?php
-// src/Entity/Reservation.php
 
 namespace App\Entity;
 
@@ -26,9 +25,6 @@ class Reservation
     #[Assert\NotBlank(message: "Veuillez choisir une date de fin.")]
     #[Assert\GreaterThan(propertyPath: "startDate", message: "La date de fin doit être postérieure à la date de début.")]
     private $endDate;
-
-    #[ORM\ManyToOne(targetEntity: Client::class), ORM\JoinColumn(nullable: false)]
-    private $client;
 
     public function getId(): ?int
     {
@@ -67,18 +63,6 @@ class Reservation
     public function setEndDate(\DateTimeInterface $endDate): self
     {
         $this->endDate = $endDate;
-
-        return $this;
-    }
-
-    public function getClient(): ?Client
-    {
-        return $this->client;
-    }
-
-    public function setClient(?Client $client): self
-    {
-        $this->client = $client;
 
         return $this;
     }
